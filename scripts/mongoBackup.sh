@@ -36,7 +36,7 @@ _______________________________________________________________
 if [[ $choix1 -eq 1 ]]
 then
   echo -e "${GREEN}${On_Black}Ok super ! On passe a la suite mameneee !${NC}" ;
-elif [[ $menu -eq 2 ]]
+elif [[ $choix1 -eq 2 ]]
 then
   echo -e "${GREEN}${On_Black}Ah ! Heureusement que je suis là ! ${NC}" ;
   sudo service mongod start
