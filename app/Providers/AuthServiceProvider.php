@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // pour te sauve de
     }
 
     /**

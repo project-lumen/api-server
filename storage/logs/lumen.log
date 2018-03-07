@@ -1,0 +1,210 @@
+[2018-03-05 09:16:59] production.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "make:auth" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder in /var/www/html/vendor/symfony/console/Application.php:611
+Stack trace:
+#0 /var/www/html/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->find('make:auth')
+#1 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/html/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main} {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:auth\" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder at /var/www/html/vendor/symfony/console/Application.php:611)
+[stacktrace]
+#0 /var/www/html/vendor/symfony/console/Application.php(224): Symfony\\Component\\Console\\Application->find('make:auth')
+#1 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/html/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2018-03-05 13:56:55] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected 'List' (T_LIST), expecting identifier (T_STRING) in /var/www/html/routes/web.php:19
+Stack trace:
+#0 [internal function]: {closure}(Object(Laravel\Lumen\Routing\Router))
+#1 /var/www/html/vendor/laravel/lumen-framework/src/Routing/Router.php(62): call_user_func(Object(Closure), Object(Laravel\Lumen\Routing\Router))
+#2 /var/www/html/bootstrap/app.php(100): Laravel\Lumen\Routing\Router->group(Array, Object(Closure))
+#3 /var/www/html/artisan(18): require('/var/www/html/b...')
+#4 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Parse error: syntax error, unexpected 'List' (T_LIST), expecting identifier (T_STRING) at /var/www/html/routes/web.php:19)
+[stacktrace]
+#0 [internal function]: {closure}(Object(Laravel\\Lumen\\Routing\\Router))
+#1 /var/www/html/vendor/laravel/lumen-framework/src/Routing/Router.php(62): call_user_func(Object(Closure), Object(Laravel\\Lumen\\Routing\\Router))
+#2 /var/www/html/bootstrap/app.php(100): Laravel\\Lumen\\Routing\\Router->group(Array, Object(Closure))
+#3 /var/www/html/artisan(18): require('/var/www/html/b...')
+#4 {main}
+"} 
+[2018-03-05 13:58:09] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected 'List' (T_LIST), expecting identifier (T_STRING) in /var/www/html/routes/web.php:19
+Stack trace:
+#0 [internal function]: {closure}(Object(Laravel\Lumen\Routing\Router))
+#1 /var/www/html/vendor/laravel/lumen-framework/src/Routing/Router.php(62): call_user_func(Object(Closure), Object(Laravel\Lumen\Routing\Router))
+#2 /var/www/html/bootstrap/app.php(100): Laravel\Lumen\Routing\Router->group(Array, Object(Closure))
+#3 /var/www/html/artisan(18): require('/var/www/html/b...')
+#4 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Parse error: syntax error, unexpected 'List' (T_LIST), expecting identifier (T_STRING) at /var/www/html/routes/web.php:19)
+[stacktrace]
+#0 [internal function]: {closure}(Object(Laravel\\Lumen\\Routing\\Router))
+#1 /var/www/html/vendor/laravel/lumen-framework/src/Routing/Router.php(62): call_user_func(Object(Closure), Object(Laravel\\Lumen\\Routing\\Router))
+#2 /var/www/html/bootstrap/app.php(100): Laravel\\Lumen\\Routing\\Router->group(Array, Object(Closure))
+#3 /var/www/html/artisan(18): require('/var/www/html/b...')
+#4 {main}
+"} 
+[2018-03-05 13:58:29] production.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "make:model" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder in /var/www/html/vendor/symfony/console/Application.php:611
+Stack trace:
+#0 /var/www/html/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->find('make:model')
+#1 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/html/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main} {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:model\" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder at /var/www/html/vendor/symfony/console/Application.php:611)
+[stacktrace]
+#0 /var/www/html/vendor/symfony/console/Application.php(224): Symfony\\Component\\Console\\Application->find('make:model')
+#1 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/html/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2018-03-05 13:58:41] production.ERROR: ErrorException: file_put_contents(/var/www/html/database/migrations/2018_03_05_135841_list.php): failed to open stream: No such file or directory in /var/www/html/vendor/illuminate/filesystem/Filesystem.php:122
+Stack trace:
+#0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'file_put_conten...', '/var/www/html/v...', 122, Array)
+#1 /var/www/html/vendor/illuminate/filesystem/Filesystem.php(122): file_put_contents('/var/www/html/d...', '<?php\n\nuse Illu...', 0)
+#2 /var/www/html/vendor/illuminate/database/Migrations/MigrationCreator.php(58): Illuminate\Filesystem\Filesystem->put('/var/www/html/d...', '<?php\n\nuse Illu...')
+#3 /var/www/html/vendor/illuminate/database/Console/Migrations/MigrateMakeCommand.php(113): Illuminate\Database\Migrations\MigrationCreator->create('list', '/var/www/html/d...', NULL, false)
+#4 /var/www/html/vendor/illuminate/database/Console/Migrations/MigrateMakeCommand.php(97): Illuminate\Database\Console\Migrations\MigrateMakeCommand->writeMigration('list', NULL, false)
+#5 [internal function]: Illuminate\Database\Console\Migrations\MigrateMakeCommand->handle()
+#6 /var/www/html/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/vendor/illuminate/container/Container.php(564): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/vendor/illuminate/console/Command.php(183): Illuminate\Container\Container->call(Array)
+#11 /var/www/html/vendor/symfony/console/Command/Command.php(252): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#12 /var/www/html/vendor/illuminate/console/Command.php(170): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#13 /var/www/html/vendor/symfony/console/Application.php(865): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/html/vendor/symfony/console/Application.php(241): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateMakeCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /var/www/html/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 {main} {"exception":"[object] (ErrorException(code: 0): file_put_contents(/var/www/html/database/migrations/2018_03_05_135841_list.php): failed to open stream: No such file or directory at /var/www/html/vendor/illuminate/filesystem/Filesystem.php:122)
+[stacktrace]
+#0 [internal function]: Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}(2, 'file_put_conten...', '/var/www/html/v...', 122, Array)
+#1 /var/www/html/vendor/illuminate/filesystem/Filesystem.php(122): file_put_contents('/var/www/html/d...', '<?php\
+\
+use Illu...', 0)
+#2 /var/www/html/vendor/illuminate/database/Migrations/MigrationCreator.php(58): Illuminate\\Filesystem\\Filesystem->put('/var/www/html/d...', '<?php\
+\
+use Illu...')
+#3 /var/www/html/vendor/illuminate/database/Console/Migrations/MigrateMakeCommand.php(113): Illuminate\\Database\\Migrations\\MigrationCreator->create('list', '/var/www/html/d...', NULL, false)
+#4 /var/www/html/vendor/illuminate/database/Console/Migrations/MigrateMakeCommand.php(97): Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand->writeMigration('list', NULL, false)
+#5 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand->handle()
+#6 /var/www/html/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/vendor/illuminate/container/BoundMethod.php(87): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#8 /var/www/html/vendor/illuminate/container/BoundMethod.php(31): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Laravel\\Lumen\\Application), Array, Object(Closure))
+#9 /var/www/html/vendor/illuminate/container/Container.php(564): Illuminate\\Container\\BoundMethod::call(Object(Laravel\\Lumen\\Application), Array, Array, NULL)
+#10 /var/www/html/vendor/illuminate/console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#11 /var/www/html/vendor/symfony/console/Command/Command.php(252): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 /var/www/html/vendor/illuminate/console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#13 /var/www/html/vendor/symfony/console/Application.php(865): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 /var/www/html/vendor/symfony/console/Application.php(241): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 /var/www/html/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 {main}
+"} 
+[2018-03-05 13:59:06] production.ERROR: ErrorException: file_put_contents(/var/www/html/database/migrations/2018_03_05_135906_list.php): failed to open stream: No such file or directory in /var/www/html/vendor/illuminate/filesystem/Filesystem.php:122
+Stack trace:
+#0 [internal function]: Laravel\Lumen\Application->Laravel\Lumen\Concerns\{closure}(2, 'file_put_conten...', '/var/www/html/v...', 122, Array)
+#1 /var/www/html/vendor/illuminate/filesystem/Filesystem.php(122): file_put_contents('/var/www/html/d...', '<?php\n\nuse Illu...', 0)
+#2 /var/www/html/vendor/illuminate/database/Migrations/MigrationCreator.php(58): Illuminate\Filesystem\Filesystem->put('/var/www/html/d...', '<?php\n\nuse Illu...')
+#3 /var/www/html/vendor/illuminate/database/Console/Migrations/MigrateMakeCommand.php(113): Illuminate\Database\Migrations\MigrationCreator->create('list', '/var/www/html/d...', NULL, false)
+#4 /var/www/html/vendor/illuminate/database/Console/Migrations/MigrateMakeCommand.php(97): Illuminate\Database\Console\Migrations\MigrateMakeCommand->writeMigration('list', NULL, false)
+#5 [internal function]: Illuminate\Database\Console\Migrations\MigrateMakeCommand->handle()
+#6 /var/www/html/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/vendor/illuminate/container/BoundMethod.php(87): Illuminate\Container\BoundMethod::Illuminate\Container\{closure}()
+#8 /var/www/html/vendor/illuminate/container/BoundMethod.php(31): Illuminate\Container\BoundMethod::callBoundMethod(Object(Laravel\Lumen\Application), Array, Object(Closure))
+#9 /var/www/html/vendor/illuminate/container/Container.php(564): Illuminate\Container\BoundMethod::call(Object(Laravel\Lumen\Application), Array, Array, NULL)
+#10 /var/www/html/vendor/illuminate/console/Command.php(183): Illuminate\Container\Container->call(Array)
+#11 /var/www/html/vendor/symfony/console/Command/Command.php(252): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#12 /var/www/html/vendor/illuminate/console/Command.php(170): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Illuminate\Console\OutputStyle))
+#13 /var/www/html/vendor/symfony/console/Application.php(865): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/html/vendor/symfony/console/Application.php(241): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateMakeCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /var/www/html/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 {main} {"exception":"[object] (ErrorException(code: 0): file_put_contents(/var/www/html/database/migrations/2018_03_05_135906_list.php): failed to open stream: No such file or directory at /var/www/html/vendor/illuminate/filesystem/Filesystem.php:122)
+[stacktrace]
+#0 [internal function]: Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}(2, 'file_put_conten...', '/var/www/html/v...', 122, Array)
+#1 /var/www/html/vendor/illuminate/filesystem/Filesystem.php(122): file_put_contents('/var/www/html/d...', '<?php\
+\
+use Illu...', 0)
+#2 /var/www/html/vendor/illuminate/database/Migrations/MigrationCreator.php(58): Illuminate\\Filesystem\\Filesystem->put('/var/www/html/d...', '<?php\
+\
+use Illu...')
+#3 /var/www/html/vendor/illuminate/database/Console/Migrations/MigrateMakeCommand.php(113): Illuminate\\Database\\Migrations\\MigrationCreator->create('list', '/var/www/html/d...', NULL, false)
+#4 /var/www/html/vendor/illuminate/database/Console/Migrations/MigrateMakeCommand.php(97): Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand->writeMigration('list', NULL, false)
+#5 [internal function]: Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand->handle()
+#6 /var/www/html/vendor/illuminate/container/BoundMethod.php(29): call_user_func_array(Array, Array)
+#7 /var/www/html/vendor/illuminate/container/BoundMethod.php(87): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#8 /var/www/html/vendor/illuminate/container/BoundMethod.php(31): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Laravel\\Lumen\\Application), Array, Object(Closure))
+#9 /var/www/html/vendor/illuminate/container/Container.php(564): Illuminate\\Container\\BoundMethod::call(Object(Laravel\\Lumen\\Application), Array, Array, NULL)
+#10 /var/www/html/vendor/illuminate/console/Command.php(183): Illuminate\\Container\\Container->call(Array)
+#11 /var/www/html/vendor/symfony/console/Command/Command.php(252): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 /var/www/html/vendor/illuminate/console/Command.php(170): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#13 /var/www/html/vendor/symfony/console/Application.php(865): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 /var/www/html/vendor/symfony/console/Application.php(241): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 /var/www/html/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 {main}
+"} 
+[2018-03-05 13:59:57] production.ERROR: Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected 'List' (T_LIST), expecting identifier (T_STRING) in /var/www/html/routes/web.php:19
+Stack trace:
+#0 [internal function]: {closure}(Object(Laravel\Lumen\Routing\Router))
+#1 /var/www/html/vendor/laravel/lumen-framework/src/Routing/Router.php(62): call_user_func(Object(Closure), Object(Laravel\Lumen\Routing\Router))
+#2 /var/www/html/bootstrap/app.php(100): Laravel\Lumen\Routing\Router->group(Array, Object(Closure))
+#3 /var/www/html/artisan(18): require('/var/www/html/b...')
+#4 {main} {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Parse error: syntax error, unexpected 'List' (T_LIST), expecting identifier (T_STRING) at /var/www/html/routes/web.php:19)
+[stacktrace]
+#0 [internal function]: {closure}(Object(Laravel\\Lumen\\Routing\\Router))
+#1 /var/www/html/vendor/laravel/lumen-framework/src/Routing/Router.php(62): call_user_func(Object(Closure), Object(Laravel\\Lumen\\Routing\\Router))
+#2 /var/www/html/bootstrap/app.php(100): Laravel\\Lumen\\Routing\\Router->group(Array, Object(Closure))
+#3 /var/www/html/artisan(18): require('/var/www/html/b...')
+#4 {main}
+"} 
+[2018-03-05 14:00:08] production.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "make:model" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder in /var/www/html/vendor/symfony/console/Application.php:611
+Stack trace:
+#0 /var/www/html/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->find('make:model')
+#1 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/html/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main} {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:model\" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder at /var/www/html/vendor/symfony/console/Application.php:611)
+[stacktrace]
+#0 /var/www/html/vendor/symfony/console/Application.php(224): Symfony\\Component\\Console\\Application->find('make:model')
+#1 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/html/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
