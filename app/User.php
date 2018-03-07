@@ -22,7 +22,7 @@ class User extends Model implements
      protected $collection = 'users';
 
     protected $fillable = [
-        'pseudo', 'email', 'codeUser', 'api_token',
+        'pseudo', 'email', 'role', 'codeUser', 'api_token',
     ];
     /**
      * The attributes excluded from the model's JSON form.
@@ -30,6 +30,6 @@ class User extends Model implements
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password','role',
     ];
 }

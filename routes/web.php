@@ -34,7 +34,19 @@ $router->post('users/login', 'UserController@login');
 // REGISTER
 $router->post('users/register', 'UserController@register');
 
-// ACCES VIA Middleware
+// // LOGOUT
+$router->post('users/logout', 'UserController@logout');
 
+// ACCES VIA Middleware
 $router->get('users/info', ['middleware' => 'auth','uses' => 'UserController@info']);
 $router->get('/user/{id}', ['middleware' => 'auth', 'uses' =>  'UserController@get_user']);
+
+
+
+// printList
+
+$router->post('/myList/printList', ['middleware' => 'auth', 'uses' =>  'MyListController@printList']);
+
+$router->post('/myList/addList', ['middleware' => 'auth', 'uses' =>  'MyListController@addList']);
+
+$router->post('/myList/addTask', ['middleware' => 'auth', 'uses' =>  'MyListController@addTask']);

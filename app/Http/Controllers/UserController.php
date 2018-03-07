@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+
 use Auth;
-use App\Zob;
+
 class UserController extends Controller
 {
     private $salt;
@@ -14,12 +15,12 @@ class UserController extends Controller
     }
 
     public function login(Request $request){
-      if ($request->has('username') && $request->has('password')) {
-        $user = User:: where("username", "=", $request->input('username'))
+      if ($request->has('pseudo') && $request->has('password')) {
+        $user = User:: where("pseudo", "=", $request->input('pseudo'))
                       ->where("password", "=", sha1($this->salt.$request->input('password')))
                       ->first();
         if ($user) {
-                    $token=str_random(60);
+                    $token=str_random(10);
                     $user->api_token=$token;
                     $user->save();
                     return $user->api_token;
@@ -40,13 +41,13 @@ class UserController extends Controller
 // VALIDE
 
     public function register(Request $request){
-      if ($request->has('username') && $request->has('password') && $request->has('email')) {
+      if ($request->has('pseudo') && $request->has('password') && $request->has('email')) {
         $user = new User;
-        $user->username=$request->input('username');
+        $user->pseudo=$request->input('pseudo');
         $user->password=sha1($this->salt.$request->input('password'));
         $user->email=$request->input('email');
         $user->codeUser=str_random(5);
-        $user->api_token=str_random(10);
+        $user->role=16;
         if($user->save()){
           return "L'inscription de l'utilisateur a réussi!";
         } else {
@@ -56,6 +57,24 @@ class UserController extends Controller
         return "Saisir toutes les donneés";
       }
     }
+//LOGOUT
+    public function logout(Request $request){
+      if ($request->has('pseudo') && $request->has('token')) {
+        $user = User::where("pseudo", "=", $request->input('pseudo'))
+                      ->where("api_token", "=", $request ->input('token'))
+                      ->first();
+        if($user){
+          $user->api_token=NULL;
+          $user->save();
+          return "Déconnection";
+        } else {
+          return "Erreur de déconnection";
+        };
+      }else{
+        return "Saisir toutes les donneés";
+      }
+    }
+
 
 
     public function get_user(Request $request, $id)

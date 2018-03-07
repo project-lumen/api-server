@@ -3,13 +3,24 @@ namespace App;
 
 use Jenssegers\Mongodb\Eloquent\Model;
 
-
-class myList extends Model {
+class myList extends Model
+{
 
     protected $collection = 'list';
-    public $timestamps = false;
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'task'
+        'creator', 'nameList', 'tokenList',
+    ];
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'tokenList',
     ];
 }
