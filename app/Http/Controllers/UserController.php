@@ -25,7 +25,8 @@ class UserController extends Controller
                     $user->save();
                     return $user->api_token;
         } else {
-          return "Le nom d'utilisateur ou le mot de passe est incorrect, la connexion a échoué!";
+          $res = array('error' => "Le nom d'utilisateur ou le mot de passe est incorrect, la connexion a échoué!");
+                   return json_encode($res);
         }
       } else {
         return "Les informations de connexion sont incomplètes, veuillez entrer le nom d'utilisateur et le mot de passe!";
@@ -77,9 +78,9 @@ class UserController extends Controller
 
 
 
-    public function get_user(Request $request, $id)
+    public function get_user(Request $request, $token)
        {
-           $user = User::where('_id', $id)->get();
+           $user = User::where('api_token', $token)->get();
            if ($user) {
                  $res['success'] = true;
                  $res['message'] = $user;

@@ -39,7 +39,7 @@ $router->post('users/logout', 'UserController@logout');
 
 // ACCES VIA Middleware
 $router->get('users/info', ['middleware' => 'auth','uses' => 'UserController@info']);
-$router->get('/user/{id}', ['middleware' => 'auth', 'uses' =>  'UserController@get_user']);
+$router->get('/user/{token}', ['middleware' => 'auth', 'uses' =>  'UserController@get_user']);
 
 
 
