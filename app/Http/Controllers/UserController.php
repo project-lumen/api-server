@@ -23,7 +23,8 @@ class UserController extends Controller
                     $token=str_random(10);
                     $user->api_token=$token;
                     $user->save();
-                    return $user->api_token;
+                    $res = array('api_token' => $user->api_token);
+                    return json_encode($res);
         } else {
           $res = array('error' => "Le nom d'utilisateur ou le mot de passe est incorrect, la connexion a échoué!");
                    return json_encode($res);
