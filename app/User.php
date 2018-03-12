@@ -22,7 +22,7 @@ class User extends Model implements
      protected $collection = 'users';
 
     protected $fillable = [
-        'pseudo', 'email', 'role', 'codeUser', 'api_token',
+        'pseudo', 'email', 'role', 'codeUser', 'api_token', 'list'
     ];
     /**
      * The attributes excluded from the model's JSON form.

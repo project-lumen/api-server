@@ -15,8 +15,13 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/test', function () use ($router) {
+$router->get('/allList', function () use ($router) {
  $variable = \App\myList::all();
+ return $variable;
+});
+
+$router->get('/test', function () use ($router) {
+ $variable = \App\User::all();
  return $variable;
 });
 
@@ -41,9 +46,14 @@ $router->post('users/logout', 'UserController@logout');
 $router->get('users/info', ['middleware' => 'auth','uses' => 'UserController@info']);
 $router->get('/user/{token}', ['middleware' => 'auth', 'uses' =>  'UserController@get_user']);
 
+$router->post('/user/info', ['middleware' => 'auth', 'uses' =>  'UserController@infoUser']);
+
 
 
 // printList
+
+$router->get('/ownList', ['middleware' => 'auth', 'uses' =>  'MyListController@showListsUser']);
+
 
 $router->post('/myList/printList', ['middleware' => 'auth', 'uses' =>  'MyListController@printList']);
 

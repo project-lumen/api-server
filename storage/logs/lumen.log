@@ -208,3 +208,27 @@ Did you mean one of these?
 #4 /var/www/html/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #5 {main}
 "} 
+[2018-03-09 16:51:24] production.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: Command "make:middleware" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder in /var/www/html/vendor/symfony/console/Application.php:611
+Stack trace:
+#0 /var/www/html/vendor/symfony/console/Application.php(224): Symfony\Component\Console\Application->find('make:middleware')
+#1 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/html/artisan(35): Laravel\Lumen\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main} {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"make:middleware\" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:seeder at /var/www/html/vendor/symfony/console/Application.php:611)
+[stacktrace]
+#0 /var/www/html/vendor/symfony/console/Application.php(224): Symfony\\Component\\Console\\Application->find('make:middleware')
+#1 /var/www/html/vendor/symfony/console/Application.php(143): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /var/www/html/vendor/illuminate/console/Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /var/www/html/vendor/laravel/lumen-framework/src/Console/Kernel.php(84): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /var/www/html/artisan(35): Laravel\\Lumen\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 

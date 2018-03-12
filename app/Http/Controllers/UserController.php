@@ -43,21 +43,38 @@ class UserController extends Controller
 // VALIDE
 
     public function register(Request $request){
-      if ($request->has('pseudo') && $request->has('password') && $request->has('email')) {
-        $user = new User;
-        $user->pseudo=$request->input('pseudo');
-        $user->password=sha1($this->salt.$request->input('password'));
-        $user->email=$request->input('email');
-        $user->codeUser=str_random(5);
-        $user->role=16;
-        if($user->save()){
-          return "L'inscription de l'utilisateur a réussi!";
-        } else {
-          return " L'inscription de l'utilisateur a échoué";
+      if ($request->has('pseudo') && $request->has('password')&& $request->has('email')) {
+        if ($request->input('pseudo') != null && $request->input('password') != null && $request->input('email') != null) {
+
+          // checkUsersUniq($request->input('pseudo'), $request->input('email')) ;
+
+          $user = new User;
+          $user->pseudo=$request->input('pseudo');
+          $user->password=sha1($this->salt.$request->input('password'));
+          $user->email=$request->input('email');
+          $user->codeUser=str_random(5);
+          $user->role=16;
+          $user->list= null;
+          if($user->save()){
+            $res['success'] = true;
+            $res['message'] = "L'inscription de l'utilisateur a réussi!";
+            return response($res);
+
+          } else {
+            $res['success'] = false;
+            $res['message'] = "L'inscription à echoué";
+            return response($res);
+          };
+        }else{
+          $res['success'] = false;
+          $res['message'] = "Saisir toutes les données";
+          return response($res);
         };
+
       }else{
-        return "Saisir toutes les donneés";
-      }
+        $res['success'] = false;
+        $res['message'] = "Saisir toutes les données";
+        return response($res);      }
     }
 //LOGOUT
     public function logout(Request $request){
@@ -91,6 +108,17 @@ class UserController extends Controller
              $res['message'] = 'Cannot find user!';
              return response($res);
            }
+       }
+
+
+       public function infoUser(Request $request)
+       {
+         $user = User::where('api_token', $request->input('api_token'))->first();
+         $res['name'] = $user->pseudo;
+         $res['code'] = $user->codeUser;
+         return response($res);
+
+
        }
 
 
