@@ -117,42 +117,35 @@ class MyListController extends Controller
 
 
       public function checkTask(Request $request){
-        if ($request->has('tokenList')) {
-          $myList = myList:: where("tokenList", "=", $request->input('tokenList'))
-                        ->first();
+        var_dump($request->input('tokenList'));
+        $myList = myList:: where("tokenList", "=", $request->input('tokenList'))
+                      ->first();
 
-              $truite = $myList->task;
+              foreach ($myList->task as $key => $value) {
+                if ($value["idTask"]==$request->input('idTask')) {
+                  var_dump($value["check"]);
+                  $buffer = $value;
+                  if ($request->input('check')=="false") {
+                    $value["check"]=false;
+                  }else {
+                    $value["check"]=true;
+                  }
+                  var_dump($value["check"]);
 
+                  $truite = array_replace($myList->task[$key], $value);
 
-              foreach($truite as $item)
-              {
-                    if($item["idTask"] == $request->input('idTask'))
-                    {
-                      $item["check"]=$request->input('check');
-                        $previusTask = $myList->task;
-                        array_push($previusTask, $item);
-                        $myList->task = $previusTask;
-                      $mylist->save();
-                    }
+                  $myList->task = $truite;
+                  // $myList->save();
+                  if ($mylist->save()) {
+                    return "ok";
+                  }else{
+                    return " pas ok";
+                  }
+                }else{
+                  var_dump("Nop");
+                }
               }
-
-
-              $res['success']=true;
-              $res['message']="Changement de status effectuer";
-      }else {
-        $res['success']=false;
-        $res['message']="erreur";
       }
-    return response($res);
-    }
-
-
-
-
-
-
-
-
 
 
     public function testTask(Request $request){
