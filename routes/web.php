@@ -54,9 +54,17 @@ $router->post('/user/info', ['middleware' => 'auth', 'uses' =>  'UserController@
 
 $router->get('/ownList', ['middleware' => 'auth', 'uses' =>  'MyListController@showListsUser']);
 
-
+//AFFICHAGE DE LA LISTE
 $router->post('/myList/printList', ['middleware' => 'auth', 'uses' =>  'MyListController@printList']);
 
+//AJOUT D'UNE NOUVELLE LISTE
 $router->post('/myList/addList', ['middleware' => 'auth', 'uses' =>  'MyListController@addList']);
 
+//AJOUT D'UNE TACHE
 $router->post('/myList/addTask', ['middleware' => 'auth', 'uses' =>  'MyListController@addTask']);
+
+//MODIFICATION DE L'ATTRIBUT CHECK DE LA TACHE SELECTION
+$router->post('/myList/checkTask', ['middleware' => 'auth', 'uses' =>  'MyListController@checkTask']);
+
+//MODIFICATION DE LA TACHE
+$router->post('/myList/modifTask', ['middleware' => 'auth', 'uses' =>  'MyListController@modifTask']);
