@@ -58,68 +58,62 @@ class UserController extends Controller
           if($user->save()){
             $res['success'] = true;
             $res['message'] = "L'inscription de l'utilisateur a réussi!";
-            return response($res);
-
           } else {
             $res['success'] = false;
             $res['message'] = "L'inscription à echoué";
-            return response($res);
           };
         }else{
           $res['success'] = false;
           $res['message'] = "Saisir toutes les données";
-          return response($res);
         };
 
       }else{
         $res['success'] = false;
         $res['message'] = "Saisir toutes les données";
-        return response($res);      }
+      }
+    return response($res);
     }
-//LOGOUT
+    
+    //LOGOUT
     public function logout(Request $request){
-      if ($request->has('pseudo') && $request->has('token')) {
-        $user = User::where("pseudo", "=", $request->input('pseudo'))
-                      ->where("api_token", "=", $request ->input('token'))
-                      ->first();
+      if ($request->has('api_token')) {
+        $user = User::where("api_token", "=", $request->input('api_token'))->first();
         if($user){
           $user->api_token=NULL;
           $user->save();
-          return "Déconnection";
+          $res['success'] = true;
+          $res['message'] = "Utilisateur déconnecté";
         } else {
-          return "Erreur de déconnection";
+          $res['success'] = false;
+          $res['message'] = "Aucune correspondance d'utilisateur";
         };
       }else{
-        return "Saisir toutes les donneés";
+        $res['success'] = false;
+        $res['message'] = "Informations manquantes";
       }
+    return response($res);
     }
 
-
-
     public function get_user(Request $request, $token)
-       {
-           $user = User::where('api_token', $token)->get();
-           if ($user) {
-                 $res['success'] = true;
-                 $res['message'] = $user;
-                 return response($res);
-           }else{
-             $res['success'] = false;
-             $res['message'] = 'Cannot find user!';
-             return response($res);
-           }
+   {
+       $user = User::where('api_token', $token)->get();
+       if ($user) {
+             $res['success'] = true;
+             $res['message'] = $user;
+       }else{
+         $res['success'] = false;
+         $res['message'] = 'Cannot find user!';
        }
+   return response($res);
+   }
 
-
-       public function infoUser(Request $request)
-       {
-         $user = User::where('api_token', $request->input('api_token'))->first();
-         $res['name'] = $user->pseudo;
-         $res['code'] = $user->codeUser;
-         return response($res);
-
-
-       }
+   public function infoUser(Request $request)
+   {
+     $user = User::where('api_token', $request->input('api_token'))->first();
+     $res['name'] = $user->pseudo;
+     $res['code'] = $user->codeUser;
+     return response($res);
+   }
 
 
 
