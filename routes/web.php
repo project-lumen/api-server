@@ -40,7 +40,7 @@ $router->post('users/login', 'UserController@login');
 $router->post('users/register', 'UserController@register');
 
 // // LOGOUT
-$router->post('users/logout', 'UserController@logout');
+$router->post('users/logout', ['middleware' => 'auth','uses' => 'UserController@logout']);
 
 // ACCES VIA Middleware
 $router->get('users/info', ['middleware' => 'auth','uses' => 'UserController@info']);
