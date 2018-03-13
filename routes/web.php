@@ -51,7 +51,6 @@ $router->post('/user/info', ['middleware' => 'auth', 'uses' =>  'UserController@
 
 
 // printList
-
 $router->get('/ownList', ['middleware' => 'auth', 'uses' =>  'MyListController@showListsUser']);
 
 //AFFICHAGE DE LA LISTE
@@ -68,3 +67,6 @@ $router->post('/myList/checkTask', ['middleware' => 'auth', 'uses' =>  'MyListCo
 
 //MODIFICATION DE LA TACHE
 $router->post('/myList/modifTask', ['middleware' => 'auth', 'uses' =>  'MyListController@modifTask']);
+
+//ADD UNE TACHE À UN USER
+$router->post('/myList/addUser', ['middleware' => 'auth', 'uses' =>  'MyListController@addUser']);

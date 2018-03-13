@@ -74,17 +74,66 @@
             "time": "2018-01-09T20:05:19+00:00"
         },
         {
-            "name": "illuminate/auth",
-            "version": "v5.6.9",
+            "name": "dragonmantank/cron-expression",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/illuminate/auth.git",
-                "reference": "3ff3be3878fdc4f592114137606c355552662028"
+                "url": "https://github.com/dragonmantank/cron-expression.git",
+                "reference": "8a84aee649c3a3ba03a721c1fb080e08dfbcd68b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/auth/zipball/3ff3be3878fdc4f592114137606c355552662028",
-                "reference": "3ff3be3878fdc4f592114137606c355552662028",
+                "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/8a84aee649c3a3ba03a721c1fb080e08dfbcd68b",
+                "reference": "8a84aee649c3a3ba03a721c1fb080e08dfbcd68b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cron\\": "src/Cron/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Chris Tankersley",
+                    "email": "chris@ctankersley.com",
+                    "homepage": "https://github.com/dragonmantank"
+                }
+            ],
+            "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
+            "keywords": [
+                "cron",
+                "schedule"
+            ],
+            "time": "2017-10-12T15:59:13+00:00"
+        },
+        {
+            "name": "illuminate/auth",
+            "version": "v5.6.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/auth.git",
+                "reference": "46202d4df0e009f30a23d6b3bed62ef4e2592b2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/illuminate/auth/zipball/46202d4df0e009f30a23d6b3bed62ef4e2592b2f",
+                "reference": "46202d4df0e009f30a23d6b3bed62ef4e2592b2f",
                 "shasum": ""
             },
             "require": {
@@ -122,11 +171,11 @@
             ],
             "description": "The Illuminate Auth package.",
             "homepage": "https://laravel.com",
-            "time": "2018-03-07T14:04:49+00:00"
+            "time": "2018-03-09T13:52:50+00:00"
         },
         {
             "name": "illuminate/broadcasting",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/broadcasting.git",
@@ -176,7 +225,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -221,7 +270,7 @@
         },
         {
             "name": "illuminate/cache",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/cache.git",
@@ -270,7 +319,7 @@
         },
         {
             "name": "illuminate/config",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/config.git",
@@ -314,7 +363,7 @@
         },
         {
             "name": "illuminate/console",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/console.git",
@@ -364,7 +413,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -408,7 +457,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -452,16 +501,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "2e375da72827d1bbb20fcc42a0fd190badd341e2"
+                "reference": "4d2fc3c816ed402fcac290e6ca7bc855d5313000"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/2e375da72827d1bbb20fcc42a0fd190badd341e2",
-                "reference": "2e375da72827d1bbb20fcc42a0fd190badd341e2",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/4d2fc3c816ed402fcac290e6ca7bc855d5313000",
+                "reference": "4d2fc3c816ed402fcac290e6ca7bc855d5313000",
                 "shasum": ""
             },
             "require": {
@@ -507,11 +556,11 @@
                 "orm",
                 "sql"
             ],
-            "time": "2018-03-06T03:35:04+00:00"
+            "time": "2018-03-09T13:55:05+00:00"
         },
         {
             "name": "illuminate/encryption",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/encryption.git",
@@ -557,7 +606,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -602,7 +651,7 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
@@ -653,7 +702,7 @@
         },
         {
             "name": "illuminate/hashing",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/hashing.git",
@@ -697,16 +746,16 @@
         },
         {
             "name": "illuminate/http",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/http.git",
-                "reference": "dc848b920b073293078097645471ad36d9c1f6db"
+                "reference": "39131ae386ff4b84903cdc3ae5a6dd2af2eb05ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/http/zipball/dc848b920b073293078097645471ad36d9c1f6db",
-                "reference": "dc848b920b073293078097645471ad36d9c1f6db",
+                "url": "https://api.github.com/repos/illuminate/http/zipball/39131ae386ff4b84903cdc3ae5a6dd2af2eb05ba",
+                "reference": "39131ae386ff4b84903cdc3ae5a6dd2af2eb05ba",
                 "shasum": ""
             },
             "require": {
@@ -739,20 +788,20 @@
             ],
             "description": "The Illuminate Http package.",
             "homepage": "https://laravel.com",
-            "time": "2018-03-06T20:06:11+00:00"
+            "time": "2018-03-09T14:19:22+00:00"
         },
         {
             "name": "illuminate/log",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/log.git",
-                "reference": "2e43370ed7d8271f567c7626ee0fa8cc72940ce0"
+                "reference": "e835839b9f3a417e0cdbf9f34b8b21dff7e8e44c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/log/zipball/2e43370ed7d8271f567c7626ee0fa8cc72940ce0",
-                "reference": "2e43370ed7d8271f567c7626ee0fa8cc72940ce0",
+                "url": "https://api.github.com/repos/illuminate/log/zipball/e835839b9f3a417e0cdbf9f34b8b21dff7e8e44c",
+                "reference": "e835839b9f3a417e0cdbf9f34b8b21dff7e8e44c",
                 "shasum": ""
             },
             "require": {
@@ -784,11 +833,11 @@
             ],
             "description": "The Illuminate Log package.",
             "homepage": "https://laravel.com",
-            "time": "2018-02-16T13:38:08+00:00"
+            "time": "2018-03-08T14:31:27+00:00"
         },
         {
             "name": "illuminate/pagination",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pagination.git",
@@ -832,7 +881,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -876,7 +925,7 @@
         },
         {
             "name": "illuminate/queue",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/queue.git",
@@ -933,7 +982,7 @@
         },
         {
             "name": "illuminate/session",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/session.git",
@@ -983,16 +1032,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "c74e5a0a4cdd599f65a615398041cc1be19cc86f"
+                "reference": "259f6f17a11b0379340ec5311fcba27bc2a04070"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/c74e5a0a4cdd599f65a615398041cc1be19cc86f",
-                "reference": "c74e5a0a4cdd599f65a615398041cc1be19cc86f",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/259f6f17a11b0379340ec5311fcba27bc2a04070",
+                "reference": "259f6f17a11b0379340ec5311fcba27bc2a04070",
                 "shasum": ""
             },
             "require": {
@@ -1036,11 +1085,11 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "time": "2018-03-04T15:11:54+00:00"
+            "time": "2018-03-09T16:52:54+00:00"
         },
         {
             "name": "illuminate/translation",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/translation.git",
@@ -1085,16 +1134,16 @@
         },
         {
             "name": "illuminate/validation",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/validation.git",
-                "reference": "02a21aabcfd01a4c8e4e052ac46e8781c470abae"
+                "reference": "07a0a10b9b09ef666fe7ee600867b90afdd7504b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/validation/zipball/02a21aabcfd01a4c8e4e052ac46e8781c470abae",
-                "reference": "02a21aabcfd01a4c8e4e052ac46e8781c470abae",
+                "url": "https://api.github.com/repos/illuminate/validation/zipball/07a0a10b9b09ef666fe7ee600867b90afdd7504b",
+                "reference": "07a0a10b9b09ef666fe7ee600867b90afdd7504b",
                 "shasum": ""
             },
             "require": {
@@ -1131,11 +1180,11 @@
             ],
             "description": "The Illuminate Validation package.",
             "homepage": "https://laravel.com",
-            "time": "2018-03-06T13:57:24+00:00"
+            "time": "2018-03-07T22:05:15+00:00"
         },
         {
             "name": "illuminate/view",
-            "version": "v5.6.9",
+            "version": "v5.6.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
@@ -1252,19 +1301,20 @@
         },
         {
             "name": "laravel/lumen-framework",
-            "version": "v5.6.1",
+            "version": "v5.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/lumen-framework.git",
-                "reference": "5f06af6ba20dc36c001359befa72e725d7f0d567"
+                "reference": "047ee78f2a45842e057bd0e26f4727b26a10b744"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/5f06af6ba20dc36c001359befa72e725d7f0d567",
-                "reference": "5f06af6ba20dc36c001359befa72e725d7f0d567",
+                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/047ee78f2a45842e057bd0e26f4727b26a10b744",
+                "reference": "047ee78f2a45842e057bd0e26f4727b26a10b744",
                 "shasum": ""
             },
             "require": {
+                "dragonmantank/cron-expression": "~2.0",
                 "illuminate/auth": "5.6.*",
                 "illuminate/broadcasting": "5.6.*",
                 "illuminate/bus": "5.6.*",
@@ -1286,7 +1336,6 @@
                 "illuminate/translation": "5.6.*",
                 "illuminate/validation": "5.6.*",
                 "illuminate/view": "5.6.*",
-                "mtdowling/cron-expression": "~1.0",
                 "nikic/fast-route": "~1.2",
                 "php": "^7.1.3",
                 "symfony/http-foundation": "~4.0",
@@ -1331,7 +1380,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2018-02-08T17:37:51+00:00"
+            "time": "2018-03-12T13:35:08+00:00"
         },
         {
             "name": "mongodb/mongodb",
@@ -1472,65 +1521,21 @@
             "time": "2017-06-19T01:22:40+00:00"
         },
         {
-            "name": "mtdowling/cron-expression",
-            "version": "v1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mtdowling/cron-expression.git",
-                "reference": "9504fa9ea681b586028adaaa0877db4aecf32bad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mtdowling/cron-expression/zipball/9504fa9ea681b586028adaaa0877db4aecf32bad",
-                "reference": "9504fa9ea681b586028adaaa0877db4aecf32bad",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0|~5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Cron\\": "src/Cron/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
-            "keywords": [
-                "cron",
-                "schedule"
-            ],
-            "time": "2017-01-23T04:29:33+00:00"
-        },
-        {
             "name": "nesbot/carbon",
-            "version": "1.23.0",
+            "version": "1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "4a874a39b2b00d7e0146cd46fab6f47c41ce9e65"
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4a874a39b2b00d7e0146cd46fab6f47c41ce9e65",
-                "reference": "4a874a39b2b00d7e0146cd46fab6f47c41ce9e65",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bba6c6e410c6b4317e37a9474aeaa753808c3875",
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
+                "php": ">=5.3.9",
                 "symfony/translation": "~2.6 || ~3.0 || ~4.0"
             },
             "require-dev": {
@@ -1566,7 +1571,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-02-28T09:22:05+00:00"
+            "time": "2018-03-10T10:10:14+00:00"
         },
         {
             "name": "nikic/fast-route",
