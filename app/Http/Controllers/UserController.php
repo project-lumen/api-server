@@ -54,7 +54,7 @@ class UserController extends Controller
           $user->email=$request->input('email');
           $user->codeUser=str_random(5);
           $user->role=16;
-          $user->list= [];
+          $user->list=[];
           if($user->save()){
             $res['success'] = true;
             $res['message'] = "L'inscription de l'utilisateur a réussi!";
@@ -78,24 +78,19 @@ class UserController extends Controller
     }
 //LOGOUT
     public function logout(Request $request){
-      if ($request->has('api_token')) {
-        $user = User::where("api_token", "=", $request->input('api_token'))->first();
+      if ($request->has('pseudo') && $request->has('token')) {
+        $user = User::where("pseudo", "=", $request->input('pseudo'))
+                      ->where("api_token", "=", $request ->input('token'))
+                      ->first();
         if($user){
           $user->api_token=NULL;
           $user->save();
-
-          $res['success'] = true;
-          $res['message'] = "Utilisateur déconnecté";
-          return response($res);
+          return "Déconnection";
         } else {
-          $res['success'] = false;
-          $res['message'] = "Aucune correspondance d'utilisateur";
-          return response($res);
+          return "Erreur de déconnection";
         };
       }else{
-        $res['success'] = false;
-        $res['message'] = "Informations manquantes";
-        return response($res);
+        return "Saisir toutes les donneés";
       }
     }
 

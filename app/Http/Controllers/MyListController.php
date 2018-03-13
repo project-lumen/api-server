@@ -60,16 +60,16 @@ class MyListController extends Controller
                $myList->tokenList=str_random(16);
                $myList->task =[];
                if($myList->save()){
-                 var_dump("truite");
+
                  $user = User::where("api_token", "=", $request->input('api_token'))->first();
                  $arrayName = $user->list ;
                  array_push($arrayName, $myList->tokenList);
                  $user->list = $arrayName;
                  $user->save();
-                 var_dump("truite2");
+
                  $res['success'] = true;
                  $res['message'] = "Liste ajouté";
-                 var_dump("truite3");
+                 
                  return response($res);
                } else {
                  $res['success'] = false;
