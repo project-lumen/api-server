@@ -30,8 +30,6 @@ class MyListController extends Controller
           foreach ($user->list as  $index => $value) {
             $myList = myList::where('tokenList', "=", $value)->first();
             $res[$index] = ['name' => $myList->nameList, 'tokenList'=> $myList->tokenList];
-            //   return $myList->creator;
-                        // return $myList;
           }
         }else{
           $res['success']=false;
@@ -55,7 +53,7 @@ class MyListController extends Controller
              if ($request->has('api_token') && $request->has('nameList') && $request->input('nameList') != null) {
                $user = User::where("api_token", "=", $request->input('api_token'))->first();
                $myList = new myList;
-               $myList->creator=$user->pseudo;
+               $myList->creator=$user->_id;
                $myList->nameList=$request->input('nameList');
                $myList->tokenList=str_random(16);
                $myList->task =[];
@@ -69,18 +67,15 @@ class MyListController extends Controller
 
                  $res['success'] = true;
                  $res['message'] = "Liste ajouté";
-                 
-                 return response($res);
                } else {
                  $res['success'] = false;
                  $res['message'] = "Probleme insertion de liste";
-                 return response($res);
                };
              }else{
                $res['success'] = false;
                $res['message'] = "Saisir toutes les données";
-               return response($res);
-             }
+            }
+            return response($res);
            }
 
       //Ajout d'une task grace à la class initialiser plus haut attention la task est un json
@@ -93,7 +88,7 @@ class MyListController extends Controller
             $task->idTask = str_random(10);
             $task->titleTask  = $request->input('titleTask');
             $task->check  = true;
-            $task->flag  = 4;
+            $task->flag  = $request->input('flag');
             $task->dateStart = $request->input('dateStart');
             $task->dateEnd = $request->input('dateEnd');
 
@@ -143,12 +138,11 @@ class MyListController extends Controller
 
               $res['success']=true;
               $res['message']="Check OK";
-              return response($res);
         }else{
           $res['success']=false;
           $res['message']="Il manque des informations";
-          return response($res);
         }
+      return response($res);
       }
 
 
@@ -161,28 +155,60 @@ class MyListController extends Controller
             $buffer=[];
               foreach ($myList->task as $key => $value) {
                 if ($value["idTask"]==$request->input('idTask')) {
-                  if ($request->input('check')=="false") {
-                    $value["check"]=false;
-                  }else {
-                    $value["check"]=true;
-                  }
+                  $value["titleTask"]=$request->input('titleTask');
+                  $value["check"]=$request->input('check');
+                  $value["flag"]=$request->input('flag');
+                  $value["dateStart"]=$request->input('dateStart');
+                  $value["dateEnd"]=$request->input('dateEnd');
                   array_push($buffer, $value);
                 }else{
                   array_push($buffer, $value);
                 }
               }
               $myList->task = $buffer;
-              $myList->save();
-
-              $res['success']=true;
-              $res['message']="Check OK";
-              return response($res);
+              if ($myList->save()){
+                $res['success']=true;
+                $res['message']="modification OK";
+              }else {
+                $res['success']=false;
+                $res['message']="erreur lors de l'insertion dans la db";
+              }
         }else{
           $res['success']=false;
           $res['message']="Il manque des informations";
-          return response($res);
         }
+      return response($res);
       }
+
+      public function addUser(Request $request){
+        $user = User::where("codeUser", "=", $request->input('codeUser'))->first();
+        if ($request->input('codeUser')!= null && $user){
+        $validation=0;
+        $buffer = $user->list;
+        foreach ($user->list as $key => $value) {
+          if ($value == $request->input('tokenList') ) {
+          $validation=1;
+          }
+        }
+        if ($validation==0) {
+          array_push($buffer, $request->input('tokenList'));
+          $user->list = $buffer;
+          $user->save();
+          $res['success']=true;
+          $res['message']="Liste ajouté";
+
+        }else{
+          $res['success']=false;
+          $res['message']="Liste existante";
+        }
+      }else {
+        $res['success']=false;
+        $res['message']="code User invalide";
+      }
+      return response($res);
+    }
+
+
 
     public function testTask(Request $request){
       $user = User::where("api_token", "=", $request->input('api_token'))->first();
@@ -193,7 +219,7 @@ class MyListController extends Controller
           var_dump($myList["task"]);
 
       }
-      return ("bite");
+      return ("prout");
   }
 
 
