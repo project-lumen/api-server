@@ -50,7 +50,7 @@ class MyListController extends Controller
       }
 
       //ajout d'une liste et d'une premiere task
-      // param a envoyer : creator / nameList / api_token
+      // param a envoyer: nameList / api_token
       public function addList(Request $request){
              if ($request->has('api_token') && $request->has('nameList') && $request->input('nameList') != null) {
                $user = User::where("api_token", "=", $request->input('api_token'))->first();
@@ -60,13 +60,16 @@ class MyListController extends Controller
                $myList->tokenList=str_random(16);
                $myList->task =[];
                if($myList->save()){
+                 var_dump("truite");
                  $user = User::where("api_token", "=", $request->input('api_token'))->first();
                  $arrayName = $user->list ;
                  array_push($arrayName, $myList->tokenList);
-                 $user->list= $arrayName;
+                 $user->list = $arrayName;
                  $user->save();
+                 var_dump("truite2");
                  $res['success'] = true;
                  $res['message'] = "Liste ajouté";
+                 var_dump("truite3");
                  return response($res);
                } else {
                  $res['success'] = false;
@@ -117,36 +120,69 @@ class MyListController extends Controller
 
 
       public function checkTask(Request $request){
-        var_dump($request->input('tokenList'));
+        if ($request->input('idTask') != null && $request->input('check') != null && $request->input('tokenList') != null){
         $myList = myList:: where("tokenList", "=", $request->input('tokenList'))
                       ->first();
-
+        // a chaque itération ont add la task actuelle a la suite du tableau buffer
+        //puis un insert le tableau buffer dans task
+            $buffer=[];
               foreach ($myList->task as $key => $value) {
                 if ($value["idTask"]==$request->input('idTask')) {
-                  var_dump($value["check"]);
-                  $buffer = $value;
                   if ($request->input('check')=="false") {
                     $value["check"]=false;
                   }else {
                     $value["check"]=true;
                   }
-                  var_dump($value["check"]);
-
-                  $truite = array_replace($myList->task[$key], $value);
-
-                  $myList->task = $truite;
-                  // $myList->save();
-                  if ($mylist->save()) {
-                    return "ok";
-                  }else{
-                    return " pas ok";
-                  }
+                  array_push($buffer, $value);
                 }else{
-                  var_dump("Nop");
+                  array_push($buffer, $value);
                 }
               }
+              $myList->task = $buffer;
+              $myList->save();
+
+              $res['success']=true;
+              $res['message']="Check OK";
+              return response($res);
+        }else{
+          $res['success']=false;
+          $res['message']="Il manque des informations";
+          return response($res);
+        }
       }
 
+
+      public function modifTask(Request $request){
+        if ($request->input('idTask') != null && $request->input('tokenList') != null){
+        $myList = myList:: where("tokenList", "=", $request->input('tokenList'))
+                      ->first();
+        // a chaque itération ont add la task actuelle a la suite du tableau buffer
+        //puis un insert le tableau buffer dans task
+            $buffer=[];
+              foreach ($myList->task as $key => $value) {
+                if ($value["idTask"]==$request->input('idTask')) {
+                  if ($request->input('check')=="false") {
+                    $value["check"]=false;
+                  }else {
+                    $value["check"]=true;
+                  }
+                  array_push($buffer, $value);
+                }else{
+                  array_push($buffer, $value);
+                }
+              }
+              $myList->task = $buffer;
+              $myList->save();
+
+              $res['success']=true;
+              $res['message']="Check OK";
+              return response($res);
+        }else{
+          $res['success']=false;
+          $res['message']="Il manque des informations";
+          return response($res);
+        }
+      }
 
     public function testTask(Request $request){
       $user = User::where("api_token", "=", $request->input('api_token'))->first();
