@@ -120,7 +120,7 @@ class MyListController extends Controller
             $buffer=[];
               foreach ($myList->task as $key => $value) {
                 if ($value["idTask"]==$request->input('idTask')) {
-                  if ($request->input('check')==false) {
+                  if ($request->input('check')=="false") {
                     $value["check"]=false;
                   }else {
                     $value["check"]=true;
