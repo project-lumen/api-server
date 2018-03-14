@@ -24,14 +24,18 @@ class UserController extends Controller
                     $user->api_token=$token;
                     $user->save();
                     $res = array('api_token' => $user->api_token);
-                    return json_encode($res);
+                    $res['success'] = true;
+                    $res['message'] = "Login";
         } else {
-          $res = array('error' => "Le nom d'utilisateur ou le mot de passe est incorrect, la connexion a échoué!");
-                   return json_encode($res);
+          $res['success'] = false;
+          $res['message'] = "Le nom d'utilisateur ou le mot de passe est incorrect, la connexion a échoué!";
+
         }
       } else {
-        return "Les informations de connexion sont incomplètes, veuillez entrer le nom d'utilisateur et le mot de passe!";
+        $res['success'] = false;
+        $res['message'] = "Les informations de connexion sont incomplètes, veuillez entrer le nom d'utilisateur et le mot de passe!";
       }
+    return response($res);
     }
 
     public function info(){
@@ -46,7 +50,20 @@ class UserController extends Controller
       if ($request->has('pseudo') && $request->has('password')&& $request->has('email')) {
         if ($request->input('pseudo') != null && $request->input('password') != null && $request->input('email') != null) {
 
-          // checkUsersUniq($request->input('pseudo'), $request->input('email')) ;
+          $checkUser = User:: where("pseudo", "=", $request->input('pseudo'))->first();
+          $checkMail = User:: where("email", "=", $request->input('email'))->first();
+
+          if ($checkUser) {
+            $res['success'] = false;
+            $res['message'] = "Pseudo déjà utiliser";
+            return response($res);
+          }
+
+          if ($checkMail) {
+            $res['success'] = false;
+            $res['message'] = "Mail déjà utiliser";
+            return response($res);
+          }
 
           $user = new User;
           $user->pseudo=$request->input('pseudo');
@@ -55,6 +72,7 @@ class UserController extends Controller
           $user->codeUser=str_random(5);
           $user->role=16;
           $user->list=[];
+          $user->validation=1;
           if($user->save()){
             $res['success'] = true;
             $res['message'] = "L'inscription de l'utilisateur a réussi!";
@@ -73,7 +91,7 @@ class UserController extends Controller
       }
     return response($res);
     }
-    
+
     //LOGOUT
     public function logout(Request $request){
       if ($request->has('api_token')) {
