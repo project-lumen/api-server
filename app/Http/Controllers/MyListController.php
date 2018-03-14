@@ -87,7 +87,7 @@ class MyListController extends Controller
             $task = new emp();
             $task->idTask = str_random(10);
             $task->titleTask  = $request->input('titleTask');
-            $task->check  = true;
+            $task->check  = false;
             $task->flag  = $request->input('flag');
             $task->dateStart = $request->input('dateStart');
             $task->dateEnd = $request->input('dateEnd');
@@ -111,9 +111,6 @@ class MyListController extends Controller
       return response($res);
       }
 
-
-
-
       public function checkTask(Request $request){
         if ($request->input('idTask') != null && $request->input('check') != null && $request->input('tokenList') != null){
         $myList = myList:: where("tokenList", "=", $request->input('tokenList'))
@@ -123,7 +120,7 @@ class MyListController extends Controller
             $buffer=[];
               foreach ($myList->task as $key => $value) {
                 if ($value["idTask"]==$request->input('idTask')) {
-                  if ($request->input('check')=="false") {
+                  if ($request->input('check')==false) {
                     $value["check"]=false;
                   }else {
                     $value["check"]=true;
@@ -144,6 +141,7 @@ class MyListController extends Controller
         }
       return response($res);
       }
+
 
 
       public function modifTask(Request $request){
@@ -208,7 +206,56 @@ class MyListController extends Controller
       return response($res);
     }
 
+    public function importantTask(Request $request){
+      $user = user:: where("api_token", "=", $request->input('api_token'))->first();
+      $buffer=[];
+       foreach ($user->list as $key => $value) {
+        $myList = myList:: where("tokenList", "=", $value)->first();
+        foreach ($myList->task as $key => $value) {
+          if ($value["flag"]=="true") {
+            array_push($buffer, $value);
+          }else{}
+        }
+       }
+    return($buffer);
+    }
 
+    public function todayTask(Request $request){
+      $user = user:: where("api_token", "=", $request->input('api_token'))->first();
+      $buffer=[];
+      $today = date("Y-m-d");
+
+       foreach ($user->list as $key => $value) {
+        $myList = myList:: where("tokenList", "=", $value)->first();
+        foreach ($myList->task as $key => $value) {
+          $start = strtotime($value["dateStart"]);
+          $end = strtotime($value["dateEnd"]);
+          $today = strtotime("now");
+            if ($today>=$start && $today<=$end) {
+              array_push($buffer, $value);
+            }
+          }
+        }
+    return($buffer);
+    }
+
+    public function soonTask(Request $request){
+      $user = user:: where("api_token", "=", $request->input('api_token'))->first();
+      $buffer=[];
+      $today = date("Y-m-d");
+
+       foreach ($user->list as $key => $value) {
+        $myList = myList:: where("tokenList", "=", $value)->first();
+        foreach ($myList->task as $key => $value) {
+          $end = strtotime($value["dateEnd"]);
+          $today = strtotime("+3 day");
+            if ( $today>=$end && $end!=false) {
+              array_push($buffer, $value);
+            }
+          }
+        }
+    return($buffer);
+    }
 
     public function testTask(Request $request){
       $user = User::where("api_token", "=", $request->input('api_token'))->first();
@@ -225,3 +272,20 @@ class MyListController extends Controller
 
 
 }
+
+//retourne un tableau avec les taches qui commence aujourd'hui
+// public function todayTask(Request $request){
+//   $user = user:: where("api_token", "=", $request->input('api_token'))->first();
+//   $buffer=[];
+//   $today = date("Y-m-d");
+//
+//    foreach ($user->list as $key => $value) {
+//     $myList = myList:: where("tokenList", "=", $value)->first();
+//     foreach ($myList->task as $key => $value) {
+//       if ($today == $value["dateStart"] ) {
+//         array_push($buffer, $value);
+//       }
+//     }
+//    }
+// return($buffer);
+// }
