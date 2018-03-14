@@ -70,3 +70,12 @@ $router->post('/myList/modifTask', ['middleware' => 'auth', 'uses' =>  'MyListCo
 
 //ADD UNE TACHE À UN USER
 $router->post('/myList/addUser', ['middleware' => 'auth', 'uses' =>  'MyListController@addUser']);
+
+// RETOURNE LA LISTE DES TACHES IMPORTANTES
+$router->post('/myList/impTask', ['middleware' => 'auth', 'uses' =>  'MyListController@importantTask']);
+
+// RETOURNE LES TACHES D'AUJOURD'HUI
+$router->post('/myList/todTask', ['middleware' => 'auth', 'uses' =>  'MyListController@todayTask']);
+
+// RETOURNE LES TACHES QUI SE TERMINE BIENTOT
+$router->post('/myList/expTask', ['middleware' => 'auth', 'uses' =>  'MyListController@soonTask']);
