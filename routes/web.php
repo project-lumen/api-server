@@ -79,3 +79,12 @@ $router->post('/myList/todTask', ['middleware' => 'auth', 'uses' =>  'MyListCont
 
 // RETOURNE LES TACHES QUI SE TERMINE BIENTOT
 $router->post('/myList/expTask', ['middleware' => 'auth', 'uses' =>  'MyListController@soonTask']);
+
+//SI LE USER EST LE PROPRIÉTAIRE DE LA LISTE (OK)
+$router->post('/myList/ifOwner', ['middleware' => 'auth', 'uses' =>  'MyListController@ifOwner']);
+
+//DELETE LA LISTE
+$router->post('/myList/deleteList', ['middleware' => 'auth', 'uses' =>  'MyListController@deleteList']);
+
+//QUITE LA LISTE
+$router->post('/myList/leaveList', ['middleware' => 'auth', 'uses' =>  'MyListController@leaveList']);
