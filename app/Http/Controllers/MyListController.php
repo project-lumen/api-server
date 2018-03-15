@@ -212,7 +212,7 @@ class MyListController extends Controller
        foreach ($user->list as $key => $value) {
         $myList = myList:: where("tokenList", "=", $value)->first();
         foreach ($myList->task as $key => $value) {
-          if ($value["flag"]==true) {
+          if ($value["flag"]=="true") {
             $value["tokenList"]=$myList->tokenList;
             array_push($buffer, $value);
           }else{}
