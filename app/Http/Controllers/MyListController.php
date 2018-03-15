@@ -56,6 +56,7 @@ class MyListController extends Controller
                $myList->creator=$user->_id;
                $myList->nameList=$request->input('nameList');
                $myList->tokenList=str_random(16);
+               $myList->collaborateur =[];
                $myList->task =[];
                if($myList->save()){
 
@@ -146,8 +147,7 @@ class MyListController extends Controller
 
       public function modifTask(Request $request){
         if ($request->input('idTask') != null && $request->input('tokenList') != null){
-        $myList = myList:: where("tokenList", "=", $request->input('tokenList'))
-                      ->first();
+        $myList = myList:: where("tokenList", "=", $request->input('tokenList'))->first();
         // a chaque itération ont add la task actuelle a la suite du tableau buffer
         //puis un insert le tableau buffer dans task
             $buffer=[];
@@ -178,22 +178,34 @@ class MyListController extends Controller
       return response($res);
       }
 
+
       public function addUser(Request $request){
         $user = User::where("codeUser", "=", $request->input('codeUser'))->first();
+        $myList = myList:: where("tokenList", "=", $request->input('tokenList'))->first();
         if ($request->input('codeUser')!= null && $user){
+        $idUser= $user->_id;
         $validation=0;
         $buffer = $user->list;
+        $bufferCollaborateur = $myList->collaborateur;
         foreach ($user->list as $key => $value) {
           if ($value == $request->input('tokenList') ) {
           $validation=1;
           }
         }
+
         if ($validation==0) {
+          array_push($bufferCollaborateur, $idUser);
           array_push($buffer, $request->input('tokenList'));
+
           $user->list = $buffer;
-          $user->save();
+          $myList->collaborateur = $bufferCollaborateur;
+        if($myList->save() && $user->save()){
           $res['success']=true;
           $res['message']="Liste ajouté";
+        }else {
+          $res['success']=false;
+          $res['message']="Probleme ajout de liste";
+        }
 
         }else{
           $res['success']=false;
@@ -205,6 +217,7 @@ class MyListController extends Controller
       }
       return response($res);
     }
+
 
     public function importantTask(Request $request){
       $user = user:: where("api_token", "=", $request->input('api_token'))->first();
@@ -276,17 +289,32 @@ class MyListController extends Controller
 
 
    public function deleteList(Request $request){
-     $user = User::all();
-     $buffer=[];
-     foreach ($user->list as $key => $value){
-          if ( $value == $request->input('tokenList')){
-          }else{
-            array_push($buffer,$value);
-          }
-      }
-      $user->list = $buffer;
-      $user->save();
-   return response($res);
+     $myList = myList:: where("tokenList", "=", $request->input('tokenList'))->first();
+     foreach ($myList->collaborateur as $key => $value) {
+       $user = User::where("_id", "=", $value)->first();
+       $creator= User::where("_id", "=", $myList->creator)->first();
+       $buffer=[];
+       foreach ($user->list as $key => $valueList) {
+         if ($valueList == $request->input('tokenList')) {
+         }else{
+          array_push($buffer,$valueList);
+         }
+       }
+       if ($creator) {
+         $buffer=[];
+         foreach ($creator->list as $key => $valueList) {
+           if ($valueList == $request->input('tokenList')) {
+           }else{
+             array_push($buffer,$valueList);
+           }
+         }
+         $creator->list=$buffer;
+         $creator->save();
+       }
+       $user->list=$buffer;
+       $user->save();
+     }
+  return "ok";
   }
 
 
@@ -294,7 +322,6 @@ class MyListController extends Controller
   public function leaveList(Request $request){
     $user = User::where("api_token", "=", $request->input('api_token'))->first();
     $buffer=[];
-
      foreach ($user->list as $key => $value){
           if ( $value == $request->input('tokenList')){
           }else{
