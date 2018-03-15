@@ -212,9 +212,9 @@ class MyListController extends Controller
        foreach ($user->list as $key => $value) {
         $myList = myList:: where("tokenList", "=", $value)->first();
         foreach ($myList->task as $key => $value) {
-          if ($value["flag"]== true) {
+          if ($value["flag"]==true) {
             array_push($buffer, $value);
-          }
+          }else{}
         }
        }
     return($buffer);
@@ -257,6 +257,75 @@ class MyListController extends Controller
     return($buffer);
     }
 
+
+//A TESTER CEST CHELOU POUR LE MOMENT
+    public function findListByIdTask(Request $request){
+      $myList = myList::all();
+       foreach ($myList as $key => $valueList) {
+         foreach ($valueList->task as $key => $valueTask) {
+           if($valueTask["idTask"] == $request->input('idTask') )
+            $result = $valueList->tokenList;
+         }
+       }
+    return($result);
+    }
+
+
+
+//BESOIN DE L'API_TOKEN ET DE LA TOKENLIST À TEST
+    public function ifOwner(Request $request){
+      $user = User::where("api_token", "=", $request->input('api_token'))->first();
+          $myList = myList:: where("tokenList", "=", $request->input('tokenList'))->first();
+          if($user->_id == $myList->creator ){
+            $res['success']=true;
+            $res['message']="createur de la liste";
+          }else{
+            $res['success']=false;
+            $res['message']="n'est pas le createur";
+          }
+    return response($res);
+   }
+
+
+   public function deleteList(Request $request){
+     $user = User::all();
+     $buffer=[];
+     foreach ($user->list as $key => $value){
+          if ( $value == $request->input('tokenList')){
+          }else{
+            array_push($buffer,$value);
+          }
+      }
+      $user->list = $buffer;
+      $user->save();
+   return response($res);
+  }
+
+
+//BESOIN DE L'API_TOKEN ET DE LA TOKENLIST
+  public function leaveList(Request $request){
+    $user = User::where("api_token", "=", $request->input('api_token'))->first();
+    $buffer=[];
+
+     foreach ($user->list as $key => $value){
+          if ( $value == $request->input('tokenList')){
+          }else{
+            array_push($buffer,$value);
+          }
+      }
+    $user->list = $buffer;
+    if ($user->save()) {
+      $res['success']=true;
+      $res['message']="Update OK";
+    }else {
+      $res['success']=false;
+      $res['message']="Update Pas Ok";
+    }
+  return response($res);
+
+  }
+
+//FONCTION POUBELLE QUI ME SERT DE COPIER COLLER
     public function testTask(Request $request){
       $user = User::where("api_token", "=", $request->input('api_token'))->first();
       foreach ($user["list"] as $key ) {
@@ -267,10 +336,7 @@ class MyListController extends Controller
 
       }
       return ("prout");
-  }
-
-
-
+    }
 }
 
 //retourne un tableau avec les taches qui commence aujourd'hui
