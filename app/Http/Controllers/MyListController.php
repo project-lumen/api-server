@@ -213,6 +213,7 @@ class MyListController extends Controller
         $myList = myList:: where("tokenList", "=", $value)->first();
         foreach ($myList->task as $key => $value) {
           if ($value["flag"]==true) {
+            $value["tokenList"]=$myList->tokenList;
             array_push($buffer, $value);
           }else{}
         }
@@ -232,6 +233,7 @@ class MyListController extends Controller
           $end = strtotime($value["dateEnd"]);
           $today = strtotime("now");
             if ($today>=$start && $today<=$end) {
+              $value["tokenList"]=$myList->tokenList;
               array_push($buffer, $value);
             }
           }
@@ -250,27 +252,13 @@ class MyListController extends Controller
           $end = strtotime($value["dateEnd"]);
           $today = strtotime("+3 day");
             if ( $today>=$end && $end!=false) {
+              $value["tokenList"]=$myList->tokenList;
               array_push($buffer, $value);
             }
           }
         }
     return($buffer);
     }
-
-
-//A TESTER CEST CHELOU POUR LE MOMENT
-    public function findListByIdTask(Request $request){
-      $myList = myList::all();
-       foreach ($myList as $key => $valueList) {
-         foreach ($valueList->task as $key => $valueTask) {
-           if($valueTask["idTask"] == $request->input('idTask') )
-            $result = $valueList->tokenList;
-         }
-       }
-    return($result);
-    }
-
-
 
 //BESOIN DE L'API_TOKEN ET DE LA TOKENLIST À TEST
     public function ifOwner(Request $request){
